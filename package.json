@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Samir70/math-q-factory/issues"
   },
-  "homepage": "https://github.com/Samir70/math-q-factory#readme"
+  "homepage": "https://github.com/Samir70/math-q-factory#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
