@@ -1,0 +1,23 @@
+{
+  "name": "math-q-factory",
+  "version": "1.0.0",
+  "description": "node api that return maths questions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samir70/math-q-factory.git"
+  },
+  "keywords": [
+    "maths",
+    "question-generator"
+  ],
+  "author": "Samir70",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Samir70/math-q-factory/issues"
+  },
+  "homepage": "https://github.com/Samir70/math-q-factory#readme"
+}
