@@ -20,8 +20,5 @@
     "url": "https://github.com/Samir70/math-q-factory/issues"
   },
   "homepage": "https://github.com/Samir70/math-q-factory#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+  "dependencies": {}
 }
