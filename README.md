@@ -1,2 +1,2 @@
 # math-q-factory
-node API that returns math questions
+javaScript package that generates a variety of maths questions
