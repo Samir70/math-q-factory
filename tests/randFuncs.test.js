@@ -4,5 +4,6 @@ console.log({
     randomNames: rand.randomNames(3),
     randomPrime: rand.randomPrime('small'),
     randomPrimeLarge: rand.randomPrime('big'),
-    randomPrimeFactorisation: rand.random2357(3)
+    randomPrimeFactorisation: rand.random2357(3),
+    rand5Under20: rand.nRandomInts(5, 20)
 })
