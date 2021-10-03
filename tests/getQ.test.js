@@ -1,8 +1,8 @@
 const { getMathsQs } = require('../lib/index');
-const { topics } = require('../lib/Topics/topicList');
+const { chapters } = require('../lib/Topics/chapterList');
 
 console.log({
     noParams: getMathsQs(),
-    topicIsAlgebra01: getMathsQs(topics.algebra01),
-    topicIsData: getMathsQs(topics.data)
+    topicIsAlgebra01: getMathsQs("algebra01"),
+    topicIsData: getMathsQs("data")
 })
