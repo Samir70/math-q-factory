@@ -6,3 +6,6 @@ console.log({
     topicIsAlgebra01: getMathsQs("algebra01"),
     topicIsData: getMathsQs("data")
 })
+console.log({
+    topicIsData: getMathsQs("data", "mode")
+})
