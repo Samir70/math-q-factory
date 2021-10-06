@@ -23,8 +23,24 @@ gives:
 >}
 
 The package looks for a question generator based on one, two, or three arguments.
-> getMathQs(topic, subTopic, subSubTopic) // the last is called qName in the tests
+> getMathQs(chapter, section, topic) 
+> // the last is called qName in the tests
+> // previously: these were topic, subtopic and subSubTopic but the above better fits the file names in the project
 
 Only a few are enabled for now. You can see which in the tests/getQ.test.js file.
 
 I have a lot of questions in another project: https://github.com/Samir70/maths-elo-api which I made as an all in one project. But now I want to use the question generators in different contexts so I am splitting out the question generator into this project. So that should allow me to update this on a pretty regular basis!
+
+## adding a new question generator (first thoughts)
+Each generator of a question needs to be registered in a couple of places.
+
+First the topic needs to listed in the topics/chapterList.js file
+But that file doesn't contain much info on the topic. It imports everything from another file. For example, the data topic is imported from dataQs 
+> const data = require('./data/dataQs');
+
+But then dataQs needs to know how to handle subtopics like mode, range, mean, median. It imports those from the dataSectionList.js file which itself doesn't have much info. It imports from seperate files that have the actual question generators
+
+This setup allows the program to search through the generators with a for loop looking for a match. First for chapter, then section and (if needed) a more precise question topic.
+
+### using pure functions
+Obviously, it's nice to have a question generator that makes questions with different numbers. But I have decided to split eqch qenerator into two parts. first a setup, that does all the picking of random numbers etc. Then a pure function which always makes the same output with a given input. There would be potential to re-use these. Eg: one random list of numbers can be used to ask for mean, median and mode of that single list. But that isn't set up at the moment.
