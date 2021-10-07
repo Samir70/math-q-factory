@@ -38,6 +38,7 @@ Each generator of a question needs to be registered in a couple of places.
 First the topic needs to listed in the topics/chapterList.js file
 But that file doesn't contain much info on the topic. It imports everything from another file. For example, the data topic is imported from dataQs 
 > const data = require('./data/dataQs');
+
 dataQs exports an object with chapterName and qGetter properties. The first is used to match the qGetter with the request. This can be seen in the index.js file
 
 But then dataQs needs to know how to handle subtopics like mode, range, mean, median. It imports those from the dataSectionList.js file which itself doesn't have much info. It imports from seperate files that have the actual question generators. There is a similar matching logic to that used with chapters to find a qGetter with the right sectionName.
