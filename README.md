@@ -23,7 +23,8 @@ gives:
 }
 ```
 The package looks for a question generator based on one, two, or three arguments.
-``` getMathQs(chapter, section, qName) 
+``` 
+getMathQs(chapter, section, qName)  
 // previously: these were topic, subtopic and subSubTopic but the above better fits the file names in the project
 ```
 
