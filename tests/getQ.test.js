@@ -15,14 +15,18 @@ const topicsToTest = [
     ['data', 'range', '']
 ]
 
-for (let [topic, subtopic, qName] of topicsToTest) {
-    q = getMathsQs(topic, subtopic, qName);
-    qDescription = [topic, subtopic, qName].join('-')
-    if (!qTypes.includes(q.qType)) {
-        console.error(red, 'getQ ', qDescription, 'has unknown qType', q.qType)
+const getQTests = () => {
+    for (let [topic, subtopic, qName] of topicsToTest) {
+        q = getMathsQs(topic, subtopic, qName);
+        qDescription = [topic, subtopic, qName].join('-')
+        if (!qTypes.includes(q.qType)) {
+            console.error(red, 'getQ ', qDescription, 'has unknown qType', q.qType)
+        }
+        if (q.qFeedback === undefined) {
+            console.warn(yellow, 'getQ', qDescription, 'has no feedback')
+        }
+        console.log(white, qDescription, q)
     }
-    if (q.qFeedback === undefined) {
-        console.warn(yellow, 'getQ', qDescription, 'has no feedback')
-    }
-    console.log(white, qDescription, q)
 }
+
+module.exports = { getQTests }
