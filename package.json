@@ -1,6 +1,6 @@
 {
   "name": "math-q-factory",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "node api that return maths questions",
   "main": "./lib/index.js",
   "files": [
@@ -16,7 +16,8 @@
   "keywords": [
     "maths",
     "question-generator",
-    "mode", "range"
+    "mode",
+    "range"
   ],
   "author": "Samir70",
   "license": "MIT",
