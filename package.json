@@ -15,7 +15,8 @@
   },
   "keywords": [
     "maths",
-    "question-generator"
+    "question-generator",
+    "mode", "range"
   ],
   "author": "Samir70",
   "license": "MIT",
