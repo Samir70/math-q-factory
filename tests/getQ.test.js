@@ -10,7 +10,7 @@ const yellow = "\x1b[33m"
 const white = "\x1b[37m"
 
 const topicsToTest = [
-    ['algebra', '', ''],
+    ['algebra01', '', ''],
     ['data', 'mode', ''],
     ['data', 'range', '']
 ]
