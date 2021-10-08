@@ -45,7 +45,7 @@ const sectStructreTest = () => {
                 }
             }
             if (allEss) {
-                console.log(green, 'found all essential properties in', sec.sectionName)
+                console.log(green, 'found all essential properties in section', sec.sectionName)
             } else {
                 console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
                 console.log(white, sec)
