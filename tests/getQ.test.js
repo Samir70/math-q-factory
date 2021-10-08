@@ -1,17 +1,10 @@
 const { getMathsQs } = require('../lib/index');
-// const { chapters } = require('../lib/Topics/chapterList');
-
+const { topicsToTest } = require('../lib/qPathList');
 
 const red = "\x1b[31m"
 const yellow = "\x1b[33m"
 const white = "\x1b[37m"
 const green = "\x1b[32m"
-
-const topicsToTest = [
-    ['algebra01', '', ''],
-    ['data', 'mode', ''],
-    ['data', 'range', '']
-]
 
 const qTypes = [
     'classify', 'elimination', 'match', 'multiChoice', 'sort', 'shortAnswer'
