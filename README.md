@@ -28,7 +28,16 @@ getMathQs(chapter, section, qName)
 // previously: these were topic, subtopic and subSubTopic but the above better fits the file names in the project
 ```
 
-Only a few are enabled for now. You can see which in the tests/getQ.test.js file.
+Only a few are enabled for now. You can see which in the qPathList.js file. Or import this list into your project so you can select one of the valid paths to pass arguments into getMathQs();
+
+```
+const { getMathsQs, topicsToTest } = require('math-q-factory');
+
+let [chapter, section, qName] = topicsToTest[1] 
+q = getMathsQs(chapter, section, qName);
+console.log(q)
+```
+Gives output similar to above question.
 
 I have a lot of questions in another project: https://github.com/Samir70/maths-elo-api which I made as an all in one project. But now I want to use the question generators in different contexts so I am splitting out the question generator into this project. So that should allow me to update this on a pretty regular basis!
 
