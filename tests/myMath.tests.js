@@ -1,39 +1,26 @@
 const myMath = require('../lib/nonQ/myMathFuncs');
 const { red, yellow, green, white } = require('./colours');
 
-const twoDecimalTests = [
-    [4.566, 4.57], [4.565, 4.57], [4.562, 4.56], [3.996, 4]
+const roundDPTests = [
+    [4.566, 4.57, 2], [4.565, 4.57, 2], [4.562, 4.56, 2], [3.996, 4, 2], 
+    [1.005, 1.01, 2], [59.385, 59.39, 2],
+    // one decimal place
+    [6.67, 6.7, 1], [6.65, 6.7, 1], [6.64, 6.6, 1], [7.95, 8, 1],
+    [1.05, 1.1, 1]
 ]
-const testTwoDecimal = () => {
-    console.log('Testing myMath.twoDecimal')
+const testRoundDP = () => {
+    console.log('Testing myMath.roundDP(x, 2)')
     let allPass = true;
-    for (let [a, b] of twoDecimalTests) {
-        if (myMath.twoDecimal(a) !== b) {
-            console.error(red, `myMath.twoDecimal failed for ${[a, b]} got ${myMath.twoDecimal(a)}`)
+    for (let [a, b, dp] of roundDPTests) {
+        if (myMath.roundDP(a, dp) !== b) {
+            console.error(red, `myMath.twoDecimal failed for ${a} exprected ${b} got ${myMath.roundDP(a, dp)}`)
             allPass = false
         }
     }
-    if (allPass) { console.log(green, 'myMath.twoDecimal passed all tests') }
-    console.log(white)
-}
-
-const oneDecimalTests = [
-    [6.67, 6.7], [6.65, 6.7], [6.64, 6.6], [7.95, 8]
-];
-const testOneDecimal = () => {
-    console.log('Testing myMath.oneDecimal')
-    let allPass = true;
-    for (let [a, b] of oneDecimalTests) {
-        if (myMath.oneDecimal(a) !== b) {
-            console.error(red, `myMath.oneDecimal failed for ${[a, b]} got ${myMath.oneDecimal(a)}`)
-            allPass = false
-        }
-    }
-    if (allPass) { console.log(green, 'myMath.oneDecimal passed all tests') }
+    if (allPass) { console.log(green, 'myMath.roundDP passed all tests') }
     console.log(white)
 }
 
 exports.myMathTests = () => {
-    testTwoDecimal()
-    testOneDecimal()
+    testRoundDP()
 }
