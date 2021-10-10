@@ -44,7 +44,7 @@ I have a lot of questions in another project: https://github.com/Samir70/maths-e
 ## adding a new question generator (first thoughts)
 Each generator of a question needs to be registered in a couple of places.
 
-First the topic needs to listed in the topics/chapterList.js file
+First the topic needs to listed in the chapters/chapterList.js file
 But that file doesn't contain much info on the topic. It imports everything from another file. For example, the data topic is imported from dataQs 
 > const data = require('./data/dataQs');
 

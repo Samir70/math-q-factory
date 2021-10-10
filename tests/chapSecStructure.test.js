@@ -1,5 +1,5 @@
-const { chapters } = require('../lib/Topics/chapterList');
-const { dataSections } = require('../lib/Topics/data/dataSectionsList');
+const { chapters } = require('../lib/chapters/chapterList');
+const { dataSections } = require('../lib/chapters/data/dataSectionsList');
 const secList = [
     dataSections
 ]
