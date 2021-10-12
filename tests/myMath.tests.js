@@ -9,7 +9,7 @@ const roundDPTests = [
     [1.05, 1.1, 1]
 ]
 const testRoundDP = () => {
-    console.log('Testing myMath.roundDP(x, 2)')
+    console.log('Testing myMath.roundDP(x, dp)')
     let allPass = true;
     for (let [a, b, dp] of roundDPTests) {
         if (myMath.roundDP(a, dp) !== b) {
