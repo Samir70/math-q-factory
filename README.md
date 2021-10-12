@@ -42,17 +42,22 @@ Gives output similar to above question.
 I have a lot of questions in another project: https://github.com/Samir70/maths-elo-api which I made as an all in one project. But now I want to use the question generators in different contexts so I am splitting out the question generator into this project. So that should allow me to update this on a pretty regular basis!
 
 ## adding a new question generator (first thoughts)
-Each generator of a question needs to be registered in a couple of places.
+Each generator of a question needs to be registered in a couple of places. There are template files to help you do this. Follow the instructions in the comments of these template files. When the tests pass, you can delete these comments from your file (but, obviously, leave them in the template). 
 
-First the topic needs to listed in the chapters/chapterList.js file
-But that file doesn't contain much info on the topic. It imports everything from another file. For example, the data topic is imported from dataQs 
-> const data = require('./data/dataQs');
+I would start by setting up the new chapter with a default question. When that gets displayed, set up a section with a default question and make sure getMathQs(chapter, section) can follow your path. I've removed the default questions from my final section files, but they are still there in the chapter files. When pushing to main, there should never be a path that returns a default question. See later about the best way to test paths.
 
-dataQs exports an object with chapterName and qGetter properties. The first is used to match the qGetter with the request. This can be seen in the index.js file
+### more detail
 
-But then dataQs needs to know how to handle subtopics like mode, range, mean, median. It imports those from the dataSectionList.js file which itself doesn't have much info. It imports from seperate files that have the actual question generators. There is a similar matching logic to that used with chapters to find a qGetter with the right sectionName.
+Remembering that we use
+> getMathQs(chapter, section, qName) 
 
-This setup allows the program to search through the generators with a for loop looking for a match. First for chapter, then section and (if needed) a more precise question name. eg: algebra, linearEqs, twoStep
+Chapters get their own folder in the chapters folder. If you look: there are currently chapters on data, number and (mostly empty) algebra01.
+
+The data chapter has sections like mean, median, mode. These are in the data folder as dataMean.js etc. So the filename follows the path to the question (except it is missing qName, which is handled entirely within the section file). Section files like dataMean.js are based on the newSectionFile.js template.
+
+Each chapter folder needs a main file that exports information to getMathQs. For example: the data folder has dataQs.js, which follows the newChapterFile.js template. Follow the instructions in that template to link everything together. 
+
+You will also need an equivalent to dataSectionList.js which doesn't have a template. It is just a list of sections. Look at dataSectionList.js to see its simple construction.
 
 ### using pure functions
 Obviously, it's nice to have a question generator that makes questions with different numbers. But I have decided to split each qenerator into two parts. First a setup, that does all the picking of random numbers etc. Then a pure function which always makes the same output with a given input. There would be potential to re-use these. Eg: one random list of numbers can be used to ask for mean, median and mode of that single list. But that question isn't set up at the moment.
