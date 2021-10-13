@@ -12,7 +12,11 @@ if (args.length > 0) {
     let topics = topicsToTest.filter(t => t[0] === chapter);
     if (section !== '') {topics = topics.filter(t => t[1] === section)}
     if (qName !== '') {topics = topics.filter(t => t[2] === qName)}
-    if (topics.length === 0) {console.log('No question found at path', args.join('-'))}
+    if (topics.length === 0) {
+        console.log('No question found at path', args.join('-'))
+        let [c, s, q] = args;
+        console.log(getMathsQs(c, s, q))
+    }
     for (let [c, s, q] of topics) {
         console.log('getting a ', [c, s, q].join('-'), 'question');
         console.log(getMathsQs(c, s, q))

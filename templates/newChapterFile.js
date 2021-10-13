@@ -6,6 +6,7 @@
  */
 
 // import the sections that this chapter has.
+// NB remember to import the SECTION_LIST into the chapSecStructure.test.js file too
 const { SECTION_LIST } = require();
 const { findQGetter } = require('../../findQGetter');
 

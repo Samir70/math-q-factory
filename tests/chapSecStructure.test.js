@@ -1,7 +1,8 @@
 const { chapters } = require('../lib/chapters/chapterList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
+const { numberSections } = require('../lib/chapters/number/numberSectionList');
 const secList = [
-    dataSections
+    dataSections, numberSections
 ]
 
 const red = "\x1b[31m"
