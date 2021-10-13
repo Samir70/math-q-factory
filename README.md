@@ -57,7 +57,21 @@ The data chapter has sections like mean, median, mode. These are in the data fol
 
 Each chapter folder needs a main file that exports information to getMathQs. For example: the data folder has dataQs.js, which follows the newChapterFile.js template. Follow the instructions in that template to link everything together. 
 
-You will also need an equivalent to dataSectionList.js which doesn't have a template. It is just a list of sections. Look at dataSectionList.js to see its simple construction.
+You will also need an equivalent to dataSectionList.js which doesn't have a template. It is just a list of sections. Look at dataSectionList.js to see its simple construction. Also: remember to import the sectionList into the chapSecStructure.test.js file so that the structure can be checked. Again: look in chapSecStructure.test.js to see how the dataSections are handled.
 
 ### using pure functions
 Obviously, it's nice to have a question generator that makes questions with different numbers. But I have decided to split each qenerator into two parts. First a setup, that does all the picking of random numbers etc. Then a pure function which always makes the same output with a given input. There would be potential to re-use these. Eg: one random list of numbers can be used to ask for mean, median and mode of that single list. But that question isn't set up at the moment.
+
+## tests
+Tests can be run with either 
+> npm test
+
+or 
+> node tests
+
+These will make sure that chapters and sections have all the properties that they need, and check full question paths for essential and desirable properties. If a path fails one of the tests, it will be displayed below the failure. 
+
+If you want to test some paths then you can supply as much of chapter, section and qName as you like. eg:
+> node tests data
+
+will provide an example of every question that has a path beginning with "data". The full path is chosen from the qPathList.js file. If you provide a path that isn't in that list, the test will say that there is no question found on that path. But you should get a default question. I am leaving the default questions as obviously default. The alternative is to have getMathQs pick a random path. I will consider that in the future.
