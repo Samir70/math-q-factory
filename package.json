@@ -16,8 +16,8 @@
   "keywords": [
     "maths",
     "question-generator",
-    "mode",
-    "range"
+    "mean", "median", "mode", "range", "data", "statistics",
+    "bus-stop", "division", "multiplication", "grid-method"
   ],
   "author": "Samir70",
   "license": "MIT",
