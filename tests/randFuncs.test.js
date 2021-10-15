@@ -5,6 +5,8 @@ console.log({
     randomColours: rand.randomColours(4),
     randomPrime: rand.randomPrime('small'),
     randomPrimeLarge: rand.randomPrime('big'),
+    randomCoprimePair: rand.randomCoprimePair(),
+    randomCoprimeTriple: rand.randomCoprimeTriple(),
     randomPrimeFactorisation: rand.random2357(3),
     rand15From10To20: rand.nRandomInts(15, 20, 10)
 })
