@@ -17,7 +17,8 @@
     "maths",
     "question-generator",
     "mean", "median", "mode", "range", "data", "statistics",
-    "bus-stop", "division", "multiplication", "grid-method"
+    "bus-stop", "division", "multiplication", "grid-method",
+    "ratio", "proportion"
   ],
   "author": "Samir70",
   "license": "MIT",
