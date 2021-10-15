@@ -1,6 +1,7 @@
 const { chapters } = require('../lib/chapters/chapterList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
 const { numberSections } = require('../lib/chapters/number/numberSectionList');
+const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
 const secList = [
     dataSections, numberSections
 ]
