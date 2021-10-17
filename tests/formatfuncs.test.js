@@ -2,8 +2,10 @@ const { joinList } = require('../lib/nonQ/formatFuncs');
 const { red, green, white } = require('./colours');
 
 const joinListTests = [
-    { list: [ 'Meera', 'Isobel', 'Sharon' ], joined: 'Meera, Isobel and Sharon' },
-    { list: [ 'Tom' ], joined: 'Meera' }
+    { list: ['Tom'], joined: 'Tom' },
+    { list: ['cyan', 'pink'], joined: 'cyan and pink' },
+    { list: ['Meera', 'Isobel', 'Sharon'], joined: 'Meera, Isobel and Sharon' },
+    { list: ['pink', 'brown', 'orange', 'purple'], joined: 'pink, brown, orange and purple' }
 ]
 
 const testGiveNames = () => {
