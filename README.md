@@ -10,16 +10,20 @@ Using node, I import the package with
 
 Then I can get a question by using getMathQs. (One at a time for now!)
 
-> console.log(getMathsQs("data", "mode"))
+> console.log(getMathsQs("ratio", "share", "givenDiff"))
 
 gives:
 ```
-{
-  qType: 'shortAnswer',
-  q: 'Find the mode of 17, 6, 14, 1, 1, 23, 8, 38, 37, 38',
-  a: '1 and 38',
-  qFeedback: '1 and 38 listed 2 times, that is more often than other numbers',
-  qPath: 'data-mode-'
+{ qType: 'shortAnswer',
+  q: 'Nandini, Zanet and Katie share some money in the ratio \n' +
+  '5:3:2 \n' +
+  'Katie gets £21 less than Nandini \n' +
+  'How much does Zanet get?',
+  a: 21,
+  hint: 'If Nandini, Zanet and Katie got £5, £3 and £2, then Katie would get £3 less than Nandini',
+  giveAway: 'Keep sharing £10 until Katie gets £21 less than Nandini',
+  qFeedback: 'Zanet gets £21',
+  qPath: 'ratio-share-givenDiff'
 }
 ```
 The package looks for a question generator based on one, two, or three arguments.
