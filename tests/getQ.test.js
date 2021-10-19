@@ -20,7 +20,7 @@ const desirables = [
     "hint", "giveAway", "qFeedback", "qPath"
 ]
 
-const getQTests = () => {
+const getQTests = (showAll) => {
     for (let [topic, subtopic, qName] of topicsToTest) {
         q = getMathsQs(topic, subtopic, qName);
         qDescription = [topic, subtopic, qName].join('-')
@@ -35,9 +35,10 @@ const getQTests = () => {
                     allEss = false;
                 }
             }
-            if (allEss) {
+            if (allEss && showAll) {
                 console.log(green, `getQ: found all essential properties for ${qDescription}`)
-            } else {
+            } 
+            if (!allEss) {
                 console.log(red, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
                 console.log(white, qDescription, q);
             }
@@ -49,14 +50,15 @@ const getQTests = () => {
                 allDes = false;
             }
         }
-        if (allDes) {
+        if (allDes && showAll) {
             console.log(green, `getQ: found all desirable properties for ${qDescription}`)
-        } else {
+        } 
+        if (!allDes) {
             console.log(yellow, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
             console.log(white, qDescription, q);
         }
-        console.log(white)
     }
+    console.log(white)
 }
 
 module.exports = { getQTests }
