@@ -27,7 +27,7 @@ const selector = {
 // then maybe they need to be split into different sections
 const sectionSetup = (qName) => {
     if (selector[qName] === undefined) {
-        return { q: 'Default ratio-share- Q' }
+        return { q: 'Default chapter-section- Q' }
     }
     return shareQs[qName]()
 }
