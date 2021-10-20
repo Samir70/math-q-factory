@@ -29,7 +29,7 @@ const sectionSetup = (qName) => {
     if (selector[qName] === undefined) {
         return { q: 'Default chapter-section- Q' }
     }
-    return shareQs[qName]()
+    return selector[qName]()
 }
 
 // this needs to be imported into a sectionList file
