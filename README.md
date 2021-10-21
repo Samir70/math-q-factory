@@ -79,3 +79,9 @@ If you want to test some paths then you can supply as much of chapter, section a
 > node tests data
 
 will provide an example of every question that has a path beginning with "data". The full path is chosen from the qPathList.js file. If you provide a path that isn't in that list, the test will say that there is no question found on that path. But you should get a default question. I am leaving the default questions as obviously default. The alternative is to have getMathQs pick a random path. I will consider that in the future.
+
+## Supporting production
+I develop this in my spare time. If you like it, and find it useful, please support. 
+
+![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg)
+[Buy me a coffee](https://www.buymeacoffee.com/Samir70)
