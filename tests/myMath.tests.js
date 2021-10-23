@@ -23,7 +23,7 @@ const testRoundDP = () => {
 
 const gcdTests = [
     // [[a, b], gcd(a, b)]
-    [[1, 13], 1], [[4, 8], 4], [[7, 15], 1], [[0, 6], 6], 
+    [[1, 13], 1], [[4, 8], 4], [[7, 15], 1], [[0, 6], 6],
     [[1470, 588], 294], [[210, 294], 42], [[882, 378], 126],
     [[441, 189, 315], 63], [[392, 1372, 980], 196]
 ]
@@ -37,11 +37,30 @@ const testGCD = () => {
             allPass = false;
         }
     }
-    if (allPass) {console.log(green, 'myMath.gcd passed all tests')}
+    if (allPass) { console.log(green, 'myMath.gcd passed all tests') }
     console.log(white)
 }
 
+const cFracTests = [
+    [[4, 5], [0, 1, 4]],
+    [[415, 93], [4, 2, 6, 7]]
+]
+
+const testCFrac = () => {
+    console.log('Testing myMath.cFrac()');
+    let allPass = true;
+    for (let [frac, ans] of cFracTests) {
+        if (myMath.cFrac(...frac).join(',') !== ans.join(',')) {
+            console.error(red, `myMath.cFrac failed for ${frac.join('/')} Expected ${ans} got ${myMath.cFrac(...frac)}`)
+            allPass = false
+        }
+        if (allPass) { console.log(green, 'myMath.cFrac passed all tests') }
+        console.log(white)
+    }
+}
+
 exports.myMathTests = () => {
-    testGCD()
-    testRoundDP(); 
+    testGCD();
+    testRoundDP();
+    testCFrac();
 };
