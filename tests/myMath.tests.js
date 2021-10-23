@@ -43,7 +43,10 @@ const testGCD = () => {
 
 const cFracTests = [
     [[4, 5], [0, 1, 4]],
-    [[415, 93], [4, 2, 6, 7]]
+    [[415, 93], [4, 2, 6, 7]],
+    [[546, 61], [8, 1, 19, 3]],
+    [[16, 61], [0, 3, 1, 4, 3]],
+    [[5, 1], [5]]
 ]
 
 const testCFrac = () => {
@@ -54,9 +57,9 @@ const testCFrac = () => {
             console.error(red, `myMath.cFrac failed for ${frac.join('/')} Expected ${ans} got ${myMath.cFrac(...frac)}`)
             allPass = false
         }
-        if (allPass) { console.log(green, 'myMath.cFrac passed all tests') }
-        console.log(white)
     }
+    if (allPass) { console.log(green, 'myMath.cFrac passed all tests') }
+    console.log(white)
 }
 
 const multInvTests = [
@@ -72,10 +75,9 @@ const testMultInv = () => {
             console.error(red, `myMath.multInv failed for ${num} mod ${base} Expected ${inv} got ${myMath.multInv(num, base)}`)
             allPass = false
         }
-        if (allPass) { console.log(green, 'myMath.multInv passed all tests') }
-        console.log(white)
     }
-
+    if (allPass) { console.log(green, 'myMath.multInv passed all tests') }
+    console.log(white)
 }
 
 exports.myMathTests = () => {
