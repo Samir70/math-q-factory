@@ -59,8 +59,28 @@ const testCFrac = () => {
     }
 }
 
+const multInvTests = [
+    // [num, base, num^-1]
+    [2, 7, 4], [9, 17, 5]
+]
+
+const testMultInv = () => {
+    console.log('Testing myMath.multInv()');
+    let allPass = true;
+    for (let [num, base, inv] of multInvTests) {
+        if (myMath.multInv(num, base) !== inv) {
+            console.error(red, `myMath.multInv failed for ${num} mod ${base} Expected ${inv} got ${myMath.multInv(num, base)}`)
+            allPass = false
+        }
+        if (allPass) { console.log(green, 'myMath.multInv passed all tests') }
+        console.log(white)
+    }
+
+}
+
 exports.myMathTests = () => {
     testGCD();
     testRoundDP();
     testCFrac();
+    testMultInv();
 };
