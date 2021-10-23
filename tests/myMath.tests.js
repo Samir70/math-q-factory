@@ -1,4 +1,5 @@
 const myMath = require('../lib/nonQ/myMathFuncs');
+const rFuncs = require('../lib/nonQ/randFuncs');
 const { red, yellow, green, white } = require('./colours');
 
 const roundDPTests = [
@@ -62,6 +63,40 @@ const testCFrac = () => {
     console.log(white)
 }
 
+const convergentsTests = [
+    {cFrac: [4, 2, 6, 7], convergents: [[4, 1], [9, 2], [58, 13], [415, 93]]}
+]
+
+const testConvergents = () => {
+    console.log('Testing myMath.convergents()');
+    let allPass = true;
+    for (let test of convergentsTests) {
+        if (myMath.convergents(test.cFrac).join(',') !== test.convergents.join(',')) {
+            console.error(red, `myMath.convergents failed for ${test.cFrac} Expected ${test.convergents} got ${myMath.convergents(test.cFrac)}`)
+            allPass = false
+        }
+    }
+    if (allPass) { console.log(green, 'myMath.convergents passed all tests') }
+}
+
+const rndTests4cFracs = (reps = 50) => {
+    let allPass = true;
+    for (let i = 0; i < reps; i++) {
+        let [top, bottom] = rFuncs.nRandomInts(2, 20, 500);
+        if (top === bottom) {top--}
+        let gcd = myMath.gcd([top, bottom])
+        let cFrac = myMath.cFrac(top, bottom)
+        let convs = myMath.convergents(cFrac)
+        let final = convs[convs.length - 1]
+        if ([top, bottom].map(n => n/gcd).join('/') !== final.join('/')) {
+            console.error(red, 'Random test for continued fractions failed')
+            console.log(`for ${[top, bottom].join('/')} got cFrac ${cFrac} and convergents ${convs.map(r => r.join('/')).join(', ')}`)
+            allPass = false;
+        }
+    }
+    if (allPass) {console.log(green, `Passed ${reps} random tests for continued fractions`)}
+}
+
 const multInvTests = [
     // [num, base, num^-1]
     [2, 7, 4], [9, 17, 5]
@@ -84,5 +119,7 @@ exports.myMathTests = () => {
     testGCD();
     testRoundDP();
     testCFrac();
+    testConvergents();
+    rndTests4cFracs();
     testMultInv();
 };
