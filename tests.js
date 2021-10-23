@@ -26,7 +26,7 @@ if (args.length > 0 && args[0] !== '--verbose') {
     let showAll = args[0] === '--verbose' ? true : false
     chapStructureTest(showAll);
     sectStructreTest(showAll);
-    getQTests(showAll);
     myMathTests(showAll);
     formatFuncsTests(showAll);
+    getQTests(showAll);
 }
