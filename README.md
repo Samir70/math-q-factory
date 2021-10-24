@@ -1,5 +1,5 @@
 # math-q-factory
-javaScript package that generates a variety of maths questions
+javaScript package that generates a variety of maths questions. Any difficulty level considered.
 
 ## install into a project with npm
 > npm i math-q-factory
@@ -32,7 +32,9 @@ getMathQs(chapter, section, qName)
 // previously: these were topic, subtopic and subSubTopic but the above better fits the file names in the project
 ```
 
-Only a few are enabled for now. You can see which in the qPathList.js file. Or import this list into your project so you can select one of the valid paths to pass arguments into getMathQs();
+More and more paths are being enabled. You can see which in the qPathList.js file. Or import this list into your project so you can select one of the valid paths to pass arguments into getMathQs();
+
+Most questions are GCSE level, but I have started some number theory (continued fractions) which I first studied at degree level. I am open to suggestions. You can open an issue on this github repo to make a request.
 
 ```
 const { getMathsQs, topicsToTest } = require('math-q-factory');
