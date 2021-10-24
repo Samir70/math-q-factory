@@ -64,7 +64,7 @@ const testCFrac = () => {
 }
 
 const convergentsTests = [
-    {cFrac: [4, 2, 6, 7], convergents: [[4, 1], [9, 2], [58, 13], [415, 93]]}
+    { cFrac: [4, 2, 6, 7], convergents: [[4, 1], [9, 2], [58, 13], [415, 93]] }
 ]
 
 const testConvergents = () => {
@@ -83,26 +83,26 @@ const rndTests4cFracs = (reps = 50) => {
     let allPass = true;
     for (let i = 0; i < reps; i++) {
         let [top, bottom] = rFuncs.nRandomInts(2, 20, 500);
-        if (top === bottom) {top--}
+        if (top === bottom) { top-- }
         let gcd = myMath.gcd([top, bottom])
         let cFrac = myMath.cFrac(top, bottom)
         let convs = myMath.convergents(cFrac)
         let final = convs[convs.length - 1]
-        if ([top, bottom].map(n => n/gcd).join('/') !== final.join('/')) {
+        if ([top, bottom].map(n => n / gcd).join('/') !== final.join('/')) {
             console.error(red, 'Random test for continued fractions failed')
             console.log(`for ${[top, bottom].join('/')} got cFrac ${cFrac} and convergents ${convs.map(r => r.join('/')).join(', ')}`)
             allPass = false;
         }
     }
-    if (allPass) {console.log(green, `Passed ${reps} random tests for continued fractions`)}
+    if (allPass) { console.log(green, `Passed ${reps} random tests for continued fractions`) }
 }
 
 const multInvTests = [
     // [num, base, num^-1]
-    [2, 7, 4], [9, 17, 5]
+    [2, 7, 4], [9, 17, 2], [5, 25, null], [1, 9, 1]
 ]
 
-const testMultInv = () => {
+const testMultInv = (reps = 50) => {
     console.log('Testing myMath.multInv()');
     let allPass = true;
     for (let [num, base, inv] of multInvTests) {
@@ -111,7 +111,18 @@ const testMultInv = () => {
             allPass = false
         }
     }
-    if (allPass) { console.log(green, 'myMath.multInv passed all tests') }
+    if (allPass) { console.log(green, 'myMath.multInv passed all set tests') }
+    allPass = true
+    for (let i = 0; i < reps; i++) {
+        let [num, base] = rFuncs.nRandomInts(2, 5000, 200)
+        while (myMath.gcd([num, base]) !== 1) { base++ }
+        let inv = myMath.multInv(num, base)
+        if ((inv * num) % base !== 1) {
+            console.error(red, `myMath.multInv failed for ${num} mod ${base}, got ${inv} while ${num}*${inv} == ${(num * inv) % base} mode ${base}`)
+            allPass = false;
+        }
+    }
+    if (allPass) { console.log(green, `myMath.multInv passed ${reps} random tests`) }
     console.log(white)
 }
 
