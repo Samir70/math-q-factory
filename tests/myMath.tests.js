@@ -42,6 +42,22 @@ const testGCD = () => {
     console.log(white)
 }
 
+const simplifyTests = [
+    { big: [25, 60, 45], simple: [5, 12, 9] }
+]
+const testSimplify = () => {
+    console.log('Testing myMath.simplify');
+    let allPass = true;
+    for (let test of simplifyTests) {
+        if (myMath.simplify(test.big).join(',') !== test.simple.join(',')) {
+            console.error(red, `myMath.simplify failed for ${test.big}. Expected ${test.simple} got ${myMath.simplify(test.big)}`);
+            allPass = false;
+        }
+    }
+    if (allPass) { console.log(green, 'myMath.simplify passed all set tests') };
+    console.log(white)
+}
+
 const cFracTests = [
     [[4, 5], [0, 1, 4]],
     [[415, 93], [4, 2, 6, 7]],
@@ -128,6 +144,7 @@ const testMultInv = (reps = 50) => {
 
 exports.myMathTests = () => {
     testGCD();
+    testSimplify();
     testRoundDP();
     testCFrac();
     testConvergents();
