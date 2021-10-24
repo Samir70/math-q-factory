@@ -99,7 +99,7 @@ const rndTests4cFracs = (reps = 50) => {
 
 const multInvTests = [
     // [num, base, num^-1]
-    [2, 7, 4], [9, 17, 2], [5, 25, null], [1, 9, 1]
+    [2, 7, 4], [9, 17, 2], [5, 25, null], [1, 9, 1], [9, 5, 4]
 ]
 
 const testMultInv = (reps = 50) => {
