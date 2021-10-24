@@ -24,6 +24,7 @@ const testRoundDP = () => {
 
 const gcdTests = [
     // [[a, b], gcd(a, b)]
+    [[65], 65],
     [[1, 13], 1], [[4, 8], 4], [[7, 15], 1], [[0, 6], 6],
     [[1470, 588], 294], [[210, 294], 42], [[882, 378], 126],
     [[441, 189, 315], 63], [[392, 1372, 980], 196]
@@ -43,7 +44,9 @@ const testGCD = () => {
 }
 
 const simplifyTests = [
-    { big: [25, 60, 45], simple: [5, 12, 9] }
+    { big: [25, 60, 45], simple: [5, 12, 9] },
+    { big: [25, 60], simple: [5, 12] },
+    { big: [25], simple: [1] }
 ]
 const testSimplify = () => {
     console.log('Testing myMath.simplify');
