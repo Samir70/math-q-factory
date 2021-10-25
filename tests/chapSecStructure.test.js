@@ -1,15 +1,15 @@
+const { red, white, green } = require('./colours');
 const { chapters } = require('../lib/chapters/chapterList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
+const { fractionSectionList } = require('../lib/chapters/fraction/fractionSectionList');
 const { numberSections } = require('../lib/chapters/number/numberSectionList');
+const { numberTheorySectionList } = require('../lib/chapters/numberTheory/numberTheorySectionList');
 const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
 const secList = [
-    dataSections, numberSections
+    dataSections, fractionSectionList,
+    numberSections, numberTheorySectionList,
+    ratioSections,
 ]
-
-const red = "\x1b[31m"
-const yellow = "\x1b[33m"
-const white = "\x1b[37m"
-const green = "\x1b[32m"
 
 const chapterEssentials = [
     "chapterName", "qGetter"
