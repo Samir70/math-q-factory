@@ -8,7 +8,6 @@
 // import the sections that this chapter has.
 // NB remember to import the SECTION_LIST into the chapSecStructure.test.js file too
 const { SECTION_LIST } = require();
-const { findQGetter } = require('../../findQGetter');
 
 // Update below line and uncomment
 // const defaultQ = { q: 'default NAME_THE_TOPIC_HERE Q', a: 42 }
@@ -16,9 +15,8 @@ const { findQGetter } = require('../../findQGetter');
 // give a name to this function eg: for chapter data, use dataQs
 // upddate the SECTION_LIST variable name to match what you imported above
 const CHANGENAME = (section = '', qName = '') => {
-    let qGetter = findQGetter('sectionName', section, SECTION_LIST);
-    if (qGetter === -1) { return defaultQ }
-    let question = qGetter(qName);
+    if (SECTION_LIST[section] === undefined) { return defaultQ }
+    let question = SECTION_LIST[section].qGetter(qName);
     return question
 }
 
