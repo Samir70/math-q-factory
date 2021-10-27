@@ -15,19 +15,19 @@ const chapterEssentials = [
     "chapterName", "qGetter"
 ]
 const chapStructureTest = () => {
-    for (let chap of chapters) {
+    for (let chap in chapters) {
         let allEss = true;
         for (let prop of chapterEssentials) {
-            if (chap[prop] === undefined) {
+            if (chapters[chap][prop] === undefined) {
                 console.log(red, `no ${prop} property found`);
                 allEss = false;
             }
         }
         if (allEss) {
-            console.log(green, 'found all essential properties in chapter', chap.chapterName)
+            console.log(green, 'found all essential properties in', white, chapters[chap])
         } else {
             console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
-            console.log(white, chap)
+            console.log(white, chapters[chap])
         }
     }
     console.log(white);
@@ -38,19 +38,19 @@ const sectionEssentials = [
 ]
 const sectStructreTest = () => {
     for (let list of secList) {
-        for (let sec of list) {
+        for (let sec in list) {
             let allEss = true;
             for (let prop of sectionEssentials) {
-                if (sec[prop] === undefined) {
+                if (list[sec][prop] === undefined) {
                     console.log(red, `no ${prop} property found`);
                     allEss = false
                 }
             }
             if (allEss) {
-                console.log(green, 'found all essential properties in section', sec.sectionName)
+                console.log(green, 'found all essential properties in', list[sec])
             } else {
                 console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
-                console.log(white, sec)
+                console.log(white, list[sec])
             }
         }
     }
