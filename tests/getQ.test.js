@@ -1,5 +1,5 @@
 const { getMathsQs } = require('../lib/index');
-const { topicsToTest } = require('../lib/qPathList');
+const { topicsToTest, shortAnswerPaths } = require('../lib/qPathList');
 const { red, yellow, white, green } = require('./colours');
 
 const qTypes = [
@@ -19,6 +19,11 @@ const essentials = {
 const desirables = [
     "hint", "giveAway", "qFeedback", "qPath"
 ]
+
+// for (let chapter in shortAnswerPaths.totalQs) {
+//     console.log(`${chapter} has ${shortAnswerPaths.totalQs[chapter]} questions`)
+//     console.log(topicsToTest.filter(t => t[0] === chapter))
+// }
 
 const getQTests = (showAll) => {
     for (let [topic, subtopic, qName] of topicsToTest) {
