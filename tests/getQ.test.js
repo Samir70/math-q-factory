@@ -11,7 +11,7 @@ const essentials = {
     classify: [],
     elimination: [],
     match: [],
-    mulitChoice: [],
+    multiChoice: ["q", "a", "wrongOptions"],
     sort: [],
     shortAnswer: ["q", "a"]
 }
