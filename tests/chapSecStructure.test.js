@@ -5,11 +5,12 @@ const { fractionSectionList } = require('../lib/chapters/fraction/fractionSectio
 const { numberSections } = require('../lib/chapters/number/numberSectionList');
 const { numberTheorySectionList } = require('../lib/chapters/numberTheory/numberTheorySectionList');
 const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
+const { sequenceSections } = require('../lib/chapters/Sequences/sequenceSectionList');
 const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const secList = [
     dataSections, fractionSectionList,
     numberSections, numberTheorySectionList,
-    ratioSections, vocabSections
+    ratioSections, sequenceSections, vocabSections
 ]
 
 const chapterEssentials = [
