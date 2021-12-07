@@ -1,6 +1,7 @@
 const { red, white, green } = require('./colours');
 const { chapters } = require('../lib/chapters/chapterList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
+const { decimalSections } = require('../lib/chapters/decimal/decimalSectionList');
 const { fractionSectionList } = require('../lib/chapters/fraction/fractionSectionList');
 const { numberSections } = require('../lib/chapters/number/numberSectionList');
 const { numberTheorySectionList } = require('../lib/chapters/numberTheory/numberTheorySectionList');
@@ -8,7 +9,7 @@ const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
 const { sequenceSections } = require('../lib/chapters/Sequences/sequenceSectionList');
 const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const secList = [
-    dataSections, fractionSectionList,
+    dataSections, decimalSections, fractionSectionList,
     numberSections, numberTheorySectionList,
     ratioSections, sequenceSections, vocabSections
 ]
