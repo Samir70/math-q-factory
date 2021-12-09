@@ -1,5 +1,6 @@
 const { red, white, green } = require('./colours');
 const { chapters } = require('../lib/chapters/chapterList');
+const { algebraSections } = require('../lib/chapters/algebra01/algebraSectionList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
 const { decimalSections } = require('../lib/chapters/decimal/decimalSectionList');
 const { fractionSectionList } = require('../lib/chapters/fraction/fractionSectionList');
