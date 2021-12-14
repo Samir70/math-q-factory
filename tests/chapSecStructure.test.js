@@ -10,6 +10,7 @@ const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
 const { sequenceSections } = require('../lib/chapters/Sequences/sequenceSectionList');
 const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const secList = [
+    algebraSections,
     dataSections, decimalSections, fractionSectionList,
     numberSections, numberTheorySectionList,
     ratioSections, sequenceSections, vocabSections
