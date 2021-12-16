@@ -57,8 +57,10 @@ const getQTests = (showAll) => {
             if (des === 'hints') {
                 if (!Array.isArray(q.hints)) {
                     console.log(yellow, `getQ: ${qDescription} hints is not an array`)
+                    allDes = false;
                 } else if (q.hints.length === 0) {
                     console.log(yellow, `getQ: ${qDescription} has empty array for hints`)
+                    allDes = false;
                 }
             }
         }
