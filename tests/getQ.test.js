@@ -17,7 +17,7 @@ const essentials = {
 }
 
 const desirables = [
-    "hint", "giveAway", "qFeedback", "qPath"
+    "hints", "qFeedback", "qPath"
 ]
 
 // for (let chapter in totalQs) {
@@ -53,6 +53,13 @@ const getQTests = (showAll) => {
             if (q[des] === undefined) {
                 console.warn(yellow, `getQ: no ${des} property found for ${qDescription}`)
                 allDes = false;
+            }
+            if (des === 'hints') {
+                if (!Array.isArray(q.hints)) {
+                    console.log(yellow, `getQ: ${qDescription} hints is not an array`)
+                } else if (q.hints.length === 0) {
+                    console.log(yellow, `getQ: ${qDescription} has empty array for hints`)
+                }
             }
         }
         if (allDes && showAll) {
