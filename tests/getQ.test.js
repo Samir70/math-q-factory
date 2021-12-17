@@ -17,7 +17,7 @@ const essentials = {
 }
 
 const desirables = [
-    "hints", "qFeedback", "qPath"
+    "hints", "qFeedback", "qPath" // number theory Qs have a link property
 ]
 
 // for (let chapter in totalQs) {
