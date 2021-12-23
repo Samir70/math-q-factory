@@ -4,6 +4,8 @@ javaScript package that generates a variety of maths questions. Any difficulty l
 ## install into a project with npm
 > npm i math-q-factory
 
+The package is now at version 2, I felt the breaking changes were needed to reorganise how topicsToTest get listed. See below.
+
 ## using the package
 Using node, I import the package with
 > const {getMathsQs} = require('math-q-factory');
@@ -39,13 +41,22 @@ Most questions are GCSE level, but I have started some number theory (continued 
 ```
 const { getMathsQs, topicsToTest } = require('math-q-factory');
 
-let [chapter, section, qName] = topicsToTest[1] 
+let [chapter, section, qName] = topicsToTest[1].path
+// .path is needed from version 2 onwards, since topicsToTest is no longer an array full of arrays.
 q = getMathsQs(chapter, section, qName);
 console.log(q)
 ```
 Gives output similar to above question.
 
-I have a lot of questions in another project: https://github.com/Samir70/maths-elo-api which I made as an all in one project. But now I want to use the question generators in different contexts so I am splitting out the question generator into this project. So that should allow me to update this on a pretty regular basis!
+The topicsToTest array is a list of objects like:
+```
+{
+    qType: 'shortAnswer',
+    path: [ 'sequences', 'linear', 'findFormula' ],
+    rating: '250'
+ },
+```
+The older version of topicsToTest just listed the paths. This then needed exporting seperate objects to enable finding different qTypes. Now topicsToTest can be filtered how you like: by qType, path details or rating. More options can be added in the future.
 
 ## adding a new question generator (first thoughts)
 Each generator of a question needs to be registered in a couple of places. There are template files to help you do this. Follow the instructions in the comments of these template files. When the tests pass, you can delete these comments from your file (but, obviously, leave them in the template). 
