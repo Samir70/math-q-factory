@@ -29,7 +29,11 @@ const getQTests = (showAll) => {
     for (let topic of topicsToTest) {
         let [chapter, section, qName] = topic.path;
         q = getMathsQs(chapter, section, qName);
-        qDescription = [chapter, section, qName].join('-')
+        qDescription = topic.path.join('-')
+        if (topic.rating === undefined) {
+            console.log(red, qDescription, 'has no rating')
+            console.log(white, q)
+        }
         let allEss = true;
         if (!qTypes.includes(q.qType)) {
             console.error(red, 'getQ: ', qDescription, 'has unknown qType', q.qType)
