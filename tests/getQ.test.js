@@ -26,14 +26,18 @@ const desirables = [
 // }
 
 const getQTests = (showAll) => {
-    for (let [topic, subtopic, qName] of topicsToTest) {
-        q = getMathsQs(topic, subtopic, qName);
-        qDescription = [topic, subtopic, qName].join('-')
+    for (let topic of topicsToTest) {
+        let [chapter, section, qName] = topic.path;
+        q = getMathsQs(chapter, section, qName);
+        qDescription = [chapter, section, qName].join('-')
         let allEss = true;
         if (!qTypes.includes(q.qType)) {
             console.error(red, 'getQ: ', qDescription, 'has unknown qType', q.qType)
             allEss = false;
         } else {
+            if (q.qType !== topic.qType) {
+                console.log(red, 'getQ:', qDescription, 'has qType:', q.qType, 'expected', topic.qType)
+            }
             for (let ess of essentials[q.qType]) {
                 if (q[ess] === undefined) {
                     console.log(red, `getQ: no ${ess} property found for ${qDescription}`)
