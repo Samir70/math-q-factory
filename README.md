@@ -6,6 +6,10 @@ javaScript package that generates a variety of maths questions. Any difficulty l
 
 The package is now at version 2, I felt the breaking changes were needed to reorganise how topicsToTest get listed. See below.
 
+Also: The previous hint and giveAway properties have been replaced with an array called hints. Any number of hints can now be given. I will eventually include a special hint that references easier questions and add that property -- as an enhancement, not a breaking change.
+
+Some questions (well, the number theory ones!) have a link property with the URL of a webpage that explains the topic. This property is not being tested for, so questions can be generated without being flagged as missing something.
+
 ## using the package
 Using node, I import the package with
 > const {getMathsQs} = require('math-q-factory');
@@ -16,15 +20,19 @@ Then I can get a question by using getMathQs. (One at a time for now!)
 
 gives:
 ```
-{ qType: 'shortAnswer',
-  q: 'Nandini, Zanet and Katie share some money in the ratio \n' +
-  '5:3:2 \n' +
-  'Katie gets £21 less than Nandini \n' +
-  'How much does Zanet get?',
-  a: 21,
-  hint: 'If Nandini, Zanet and Katie got £5, £3 and £2, then Katie would get £3 less than Nandini',
-  giveAway: 'Keep sharing £10 until Katie gets £21 less than Nandini',
-  qFeedback: 'Zanet gets £21',
+{
+  qType: 'shortAnswer',
+  q: 'Evette, Steven and Nandini share some money in the ratio \n' +
+    '4:7:5 \n' +
+    'Steven gets £10 more than Nandini \n' +
+    'How much does Evette get?',
+  a: 20,
+  hints: [
+    'If Evette, Steven and Nandini got £4, £7 and £5, then Steven would get £2 more than Nandini',
+    'Every time you share £16 in the given ratio Steven gets £2 more than Nandini',
+    'How many times should you do this so Steven gets £10 more than Nandini?'
+  ],
+  qFeedback: 'Evette gets £20',
   qPath: 'ratio-share-givenDiff'
 }
 ```
