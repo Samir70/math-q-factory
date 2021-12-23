@@ -33,6 +33,10 @@ const getQTests = (showAll) => {
         if (topic.rating === undefined) {
             console.log(red, qDescription, 'has no rating')
             console.log(white, q)
+        } else {
+            if (typeof topic.rating !== 'number') {
+                console.log(red, qDescription, 'has a', typeof topic.rating, 'instead of a number for a rating')
+            }
         }
         let allEss = true;
         if (!qTypes.includes(q.qType)) {
