@@ -7,7 +7,7 @@ const { formatFuncsTests } = require('./tests/formatfuncs.test');
 
 const args = process.argv.slice(2)
 
-if (args.length > 0 && args[0] !== '--verbose') {
+if (args.length > 0 && args[0][0] !== '-') {
     while (args.length < 3) { args.push('') }
     let [chapter, section, qName] = args;
     let topics = topicsToTest.filter(t => t.path[0] === chapter);
@@ -24,10 +24,11 @@ if (args.length > 0 && args[0] !== '--verbose') {
         console.log(getMathsQs(c, s, q))
     }
 } else {
-    let showAll = args[0] === '--verbose' ? true : false
+    let showAll = args.includes('--verbose');
+    let showBBs = args.includes('--showBBs')
     chapStructureTest(showAll);
     sectStructreTest(showAll);
     myMathTests(showAll);
     formatFuncsTests(showAll);
-    getQTests(showAll);
+    getQTests(showAll, showBBs);
 }

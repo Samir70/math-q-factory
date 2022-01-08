@@ -17,7 +17,8 @@ const essentials = {
 }
 
 const desirables = [
-    "hints", "qFeedback", "qPath" // number theory Qs have a link property
+    "hints", "qFeedback", "qPath", "buildingBlocks" 
+    // number theory Qs have a link property
 ]
 
 // for (let chapter in totalQs) {
@@ -25,7 +26,7 @@ const desirables = [
 //     console.log(topicsToTest.filter(t => t[0] === chapter))
 // }
 
-const getQTests = (showAll) => {
+const getQTests = (showAll, showBBs) => {
     for (let topic of topicsToTest) {
         let [chapter, section, qName] = topic.path;
         q = getMathsQs(chapter, section, qName);
@@ -62,6 +63,7 @@ const getQTests = (showAll) => {
         }
         let allDes = true;
         for (let des of desirables) {
+            if (des === 'buildingBlocks' && !showBBs) {continue}
             if (q[des] === undefined) {
                 console.warn(yellow, `getQ: no ${des} property found for ${qDescription}`)
                 allDes = false;
@@ -74,6 +76,12 @@ const getQTests = (showAll) => {
                     console.log(yellow, `getQ: ${qDescription} has empty array for hints`)
                     allDes = false;
                 }
+            }
+            if (des === 'buildingBlocks') {
+                if (!Array.isArray(q.buildingBlocks)) {
+                    console.log(yellow, `getQ: ${qDescription} buildingBlocks is not an array`)
+                    allDes = false;
+                } 
             }
         }
         if (allDes && showAll) {
