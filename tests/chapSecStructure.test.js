@@ -7,13 +7,14 @@ const { fractionSectionList } = require('../lib/chapters/fraction/fractionSectio
 const { numberSections } = require('../lib/chapters/number/numberSectionList');
 const { numberTheorySectionList } = require('../lib/chapters/numberTheory/numberTheorySectionList');
 const { percentSections } = require('../lib/chapters/percent/percentSectionsList');
+const { powersSectionList } = require('../lib/chapters/powers/powersSectionList');
 const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
 const { sequenceSections } = require('../lib/chapters/Sequences/sequenceSectionList');
 const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const secList = [
     algebraSections,
     dataSections, decimalSections, fractionSectionList,
-    numberSections, numberTheorySectionList, percentSections,
+    numberSections, numberTheorySectionList, percentSections, powersSectionList,
     ratioSections, sequenceSections, vocabSections
 ]
 
