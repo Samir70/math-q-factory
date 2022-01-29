@@ -10,13 +10,15 @@ const { percentSections } = require('../lib/chapters/percent/percentSectionsList
 const { powersSectionList } = require('../lib/chapters/powers/powersSectionList');
 const { ratioSections } = require('../lib/chapters/ratio/ratioSectionList');
 const { sequenceSections } = require('../lib/chapters/Sequences/sequenceSectionList');
+const { shapeSections } = require('../lib/chapters/shape/shapeSectionList');
 const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const { wordySections } = require('../lib/chapters/Wordy/wordySectionList');
 const secList = [
     algebraSections,
     dataSections, decimalSections, fractionSectionList,
     numberSections, numberTheorySectionList, percentSections, powersSectionList,
-    ratioSections, sequenceSections, vocabSections, wordySections
+    ratioSections, sequenceSections, shapeSections,
+    vocabSections, wordySections
 ]
 
 const chapterEssentials = [
