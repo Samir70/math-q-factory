@@ -20,8 +20,9 @@ if (args.length > 0 && args[0][0] !== '-') {
     }
     for (let topic of topics) {
         let [c, s, q] = topic.path
+        let r = topic.rating
         console.log('getting a ', [c, s, q].join('-'), 'question');
-        console.log(getMathsQs(c, s, q))
+        console.log(getMathsQs(c, s, q, r))
     }
 } else {
     let showAll = args.includes('--verbose');

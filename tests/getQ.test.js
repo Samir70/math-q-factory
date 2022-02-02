@@ -29,7 +29,8 @@ const desirables = [
 const getQTests = (showAll, showBBs) => {
     for (let topic of topicsToTest) {
         let [chapter, section, qName] = topic.path;
-        q = getMathsQs(chapter, section, qName);
+        let rating = topic.rating;
+        q = getMathsQs(chapter, section, qName, rating);
         qDescription = topic.path.join('-')
         if (topic.rating === undefined) {
             console.log(red, qDescription, 'has no rating')
