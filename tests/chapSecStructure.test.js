@@ -3,6 +3,7 @@ const { chapters } = require('../lib/chapters/chapterList');
 const { algebraSections } = require('../lib/chapters/algebra01/algebraSectionList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
 const { decimalSections } = require('../lib/chapters/decimal/decimalSectionList');
+const { formulasSections } = require('../lib/chapters/formulas/formulasSectionList');
 const { fractionSectionList } = require('../lib/chapters/fraction/fractionSectionList');
 const { numberSections } = require('../lib/chapters/number/numberSectionList');
 const { numberTheorySectionList } = require('../lib/chapters/numberTheory/numberTheorySectionList');
@@ -15,7 +16,7 @@ const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const { wordySections } = require('../lib/chapters/Wordy/wordySectionList');
 const secList = [
     algebraSections,
-    dataSections, decimalSections, fractionSectionList,
+    dataSections, decimalSections, formulasSections, fractionSectionList,
     numberSections, numberTheorySectionList, percentSections, powersSectionList,
     ratioSections, sequenceSections, shapeSections,
     vocabSections, wordySections
