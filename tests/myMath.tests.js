@@ -22,6 +22,23 @@ const testRoundDP = () => {
     console.log(white)
 }
 
+const penceToPoundsTests = [
+    [324, '£3.24'], ['240', '£2.40'], [600, '£6'], [32, '£0.32']
+];
+
+const testPenceToPounds = () => {
+    console.log('Testing myMath.penceToPounds');
+    let allPass = true;
+    for (let [pence, pounds] of penceToPoundsTests) {
+        if (myMath.penceToPounds(pence) !== pounds) {
+            console.log(red, `myMath.penceToPounds failed for ${pence}. Expected ${pounds} got ${myMath.penceToPounds(pence)}`)
+            allPass = false
+        }
+    }
+    if (allPass) { console.log(green, 'myMath.penceToPounds passed all tests') }
+    console.log(white)
+}
+
 const gcdTests = [
     // [[a, b], gcd(a, b)]
     [[65], 65],
@@ -149,6 +166,7 @@ exports.myMathTests = () => {
     testGCD();
     testSimplify();
     testRoundDP();
+    testPenceToPounds();
     testCFrac();
     testConvergents();
     rndTests4cFracs();
