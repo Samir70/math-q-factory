@@ -78,6 +78,25 @@ const testSimplify = () => {
     console.log(white)
 }
 
+const top2MixedTests = [
+    { topHeavey: [28, 5], mixed: [5, 3, 5] },
+    { topHeavey: [28, 55], mixed: [0, 28, 55] },
+    { topHeavey: [30, 27], mixed: [1, 1, 9] }
+]
+const testTop2Mixed = () => {
+    console.log('Testing myMath.simplify');
+    let allPass = true;
+    for (let test of top2MixedTests) {
+        let [n, d] = test.topHeavey
+        if (myMath.top2mixed(n, d).join('-') !== test.mixed.join('-')) {
+            console.error(red, `myMath.top2Mixed failed for ${test.topHeavey}. Expected ${test.mixed} got ${myMath.top2mixed(n, d)}`);
+            allPass = false;
+        }
+    }
+    if (allPass) { console.log(green, 'myMath.simplify passed all set tests') };
+    console.log(white)
+}
+
 const cFracTests = [
     [[4, 5], [0, 1, 4]],
     [[415, 93], [4, 2, 6, 7]],
@@ -165,6 +184,7 @@ const testMultInv = (reps = 50) => {
 exports.myMathTests = () => {
     testGCD();
     testSimplify();
+    testTop2Mixed();
     testRoundDP();
     testPenceToPounds();
     testCFrac();
