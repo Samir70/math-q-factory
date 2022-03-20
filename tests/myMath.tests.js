@@ -81,10 +81,12 @@ const testSimplify = () => {
 const top2MixedTests = [
     { topHeavey: [28, 5], mixed: [5, 3, 5] },
     { topHeavey: [28, 55], mixed: [0, 28, 55] },
+    { topHeavey: [28, 3], mixed: [9, 1, 3] },
+    { topHeavey: [28, 7], mixed: [4, 0, 1] },
     { topHeavey: [30, 27], mixed: [1, 1, 9] }
 ]
 const testTop2Mixed = () => {
-    console.log('Testing myMath.simplify');
+    console.log('Testing myMath.top2mixed');
     let allPass = true;
     for (let test of top2MixedTests) {
         let [n, d] = test.topHeavey
