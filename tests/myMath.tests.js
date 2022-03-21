@@ -95,7 +95,21 @@ const testTop2Mixed = () => {
             allPass = false;
         }
     }
-    if (allPass) { console.log(green, 'myMath.simplify passed all set tests') };
+    if (allPass) { console.log(green, 'myMath.top2mixed passed all set tests') };
+    console.log(white)
+}
+
+const testMixed2TopH = () => {
+    console.log('Testing myMath.mixed2TopH');
+    let allPass = true;
+    for (let test of top2MixedTests) {
+        if (test.mixed[1] === 0) {continue}
+        if (myMath.mixed2TopH(test.mixed).join('-') !== test.topHeavey.join('-')) {
+            console.error(red, `myMath.mixed2TopH failed for ${test.mixed}. Expected ${test.topHeavey} got ${myMath.mixed2TopH(test.mixed)}`);
+            allPass = false;
+        }
+    }
+    if (allPass) { console.log(green, 'myMath.mixed2TopH passed all set tests') };
     console.log(white)
 }
 
@@ -187,6 +201,7 @@ exports.myMathTests = () => {
     testGCD();
     testSimplify();
     testTop2Mixed();
+    testMixed2TopH();
     testRoundDP();
     testPenceToPounds();
     testCFrac();
