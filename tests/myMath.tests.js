@@ -82,7 +82,7 @@ const top2MixedTests = [
     { topHeavey: [28, 5], mixed: [5, 3, 5] },
     { topHeavey: [28, 55], mixed: [0, 28, 55] },
     { topHeavey: [28, 3], mixed: [9, 1, 3] },
-    { topHeavey: [28, 7], mixed: [4, 0, 1] },
+    { topHeavey: [28, 7], mixed: [4, 0, 7] },
     { topHeavey: [30, 27], mixed: [1, 3, 27] }
 ]
 const testTop2Mixed = () => {
