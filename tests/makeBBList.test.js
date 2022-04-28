@@ -1,4 +1,4 @@
-const {makeBBList} = require('../lib/index');
+const { makeBBList } = require('../lib/makeBBList');
 
 const dummyQConnections = {
 
@@ -10,5 +10,5 @@ const dummyGetQs = (chap, sec, qName, rating) => {
 }
 
 const testMakeBBList = (path) => {
-
+    return true
 }
