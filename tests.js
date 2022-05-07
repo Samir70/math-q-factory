@@ -4,6 +4,7 @@ const { topicsToTest } = require('./lib/qPathList');
 const { chapStructureTest, sectStructreTest } = require('./tests/chapSecStructure.test')
 const { myMathTests } = require('./tests/myMath.tests');
 const { formatFuncsTests } = require('./tests/formatfuncs.test');
+const { testMakeBBList } = require('./tests/makeBBList.test');
 
 const args = process.argv.slice(2)
 
@@ -32,4 +33,5 @@ if (args.length > 0 && args[0][0] !== '-') {
     myMathTests(showAll);
     formatFuncsTests(showAll);
     getQTests(showAll, showBBs);
+    testMakeBBList(showAll)
 }
