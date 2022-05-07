@@ -2,10 +2,12 @@ const { red, white, green } = require('./colours');
 const { makeBBList } = require('../lib/makeBBList');
 
 const dummyQConnections = {
-    'a-b-f-900': ['a-b-e-500'],
+    'a-b-f-900': ['a-b-g-500'],
+    'a-b-g-500': ['m-n-o-400'],
     'a-b-e-500': ['a-b-d-350', 'm-n-o-400'],
     'a-b-d-350': ['c-m-n-200'],
-    'm-n-o-400': []
+    'm-n-o-400': ['c-m-n-200'],
+    'c-m-n-200': []
 }
 
 const dummyGetQs = (chap, sec, qName, rating) => {
@@ -14,7 +16,10 @@ const dummyGetQs = (chap, sec, qName, rating) => {
 }
 
 const tests = [
-    { path: 'm-n-o-400', expect: [] }
+    { path: 'c-m-n-200', expect: [] },
+    { path: 'm-n-o-400', expect: ['c-m-n-200'] },
+    { path: 'a-b-e-500', expect: ['c-m-n-200', 'a-b-d-350', 'm-n-o-400'] },
+    { path: 'a-b-f-500', expect: ['c-m-n-200', 'm-n-0-400', 'a-b-g-500'] }
 ]
 
 const testMakeBBList = (showAll = false) => {
