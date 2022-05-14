@@ -30,15 +30,15 @@ const testMakeBBList = (showAll = false) => {
         for (let i = 0; allGood && i < bbs.length; i++) {
             if (bbs[i] !== t.expect[i]) {
                 allGood = false;
-                console.log(red, `path: ${t.path} elsement ${i} gives ${bbs[i]} expected`, t.expect)
+                console.log(red, `path: ${t.path} elsement ${i} gives ${bbs[i]} expected`, white, t.expect)
             }
         }
         if (bbs.length !== t.expect.length) {
             allGood = false;
-            console.log(red, `path: ${t.path} has wrong length: ${bbs} expected`, t.expect)
+            console.log(red, `path: ${t.path} has wrong length: ${bbs} expected`, white, t.expect)
         }
         if (allGood && showAll) {
-            console.log(green, `path: ${t.path} gets proper building blocks`)
+            console.log(green, `path: ${t.path} gets proper building blocks`, white, bbs)
         }
     }
     console.log(white);
