@@ -1,5 +1,6 @@
-const { red, white, green } = require('./colours');
+const { red, white, green, yellow } = require('./colours');
 const { makeBBList } = require('../lib/makeBBList');
+const { getMathsQs } = require('../lib/index');
 
 const dummyQConnections = {
     'a-b-f-900': ['a-b-g-500'],
@@ -8,7 +9,7 @@ const dummyQConnections = {
     'a-b-d-350': ['c-m-n-200'],
     'm-n-o-400': ['c-m-n-200'],
     'c-m-n-200': [],
-    'a-noRating-test' : ['a-noRating-q-strRating', 'a-b-e-500']
+    'a-noRating-test': ['a-noRating-q-strRating', 'a-b-e-500']
 }
 
 const dummyGetQs = (chap, sec, qName, rating) => {
@@ -23,6 +24,14 @@ const tests = [
     { path: 'a-b-e-500', expect: ['c-m-n-200', 'a-b-d-350', 'm-n-o-400'] },
     { path: 'a-noRating-test', expect: ['a-noRating-q-strRating', 'c-m-n-200', 'a-b-d-350', 'm-n-o-400', 'a-b-e-500'] },
     { path: 'a-b-f-900', expect: ['c-m-n-200', 'm-n-o-400', 'a-b-g-500'] }
+]
+
+const test2 = [
+    // real q-paths to see what we would get
+    // these are for display only, it would be impractical to fix the desired output.
+    'fraction-multiply-mixedNumbers-150',
+    'percent-ofAmount-multiplesOf1%-150',
+    'wordy-busStop-holiday-230'
 ]
 
 const testMakeBBList = (showAll = false) => {
@@ -44,7 +53,14 @@ const testMakeBBList = (showAll = false) => {
             console.log(green, `path: ${t.path} gets proper building blocks`, white, bbs)
         }
     }
+    if (showAll) {
+        for (let t of test2) {
+            console.log(yellow, `getting building blocks for ${t}`)
+            console.log(white, makeBBList(t, getMathsQs))
+        }
+    }
     console.log(white);
 }
+
 
 module.exports = { testMakeBBList }
