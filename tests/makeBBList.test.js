@@ -7,19 +7,22 @@ const dummyQConnections = {
     'a-b-e-500': ['a-b-d-350', 'm-n-o-400'],
     'a-b-d-350': ['c-m-n-200'],
     'm-n-o-400': ['c-m-n-200'],
-    'c-m-n-200': []
+    'c-m-n-200': [],
+    'a-noRating-test' : ['a-noRating-q-strRating', 'a-b-e-500']
 }
 
 const dummyGetQs = (chap, sec, qName, rating) => {
-    path = [chap, sec, qName, rating].join('-')
+    path = rating === undefined ? [chap, sec, qName].join('-') : [chap, sec, qName, rating].join('-')
     return { buildingBlocks: dummyQConnections[path] }
 }
 
 const tests = [
     { path: 'c-m-n-200', expect: [] },
+    { path: 'c-m-unknown-200', expect: [] },
     { path: 'm-n-o-400', expect: ['c-m-n-200'] },
     { path: 'a-b-e-500', expect: ['c-m-n-200', 'a-b-d-350', 'm-n-o-400'] },
-    { path: 'a-b-f-500', expect: ['c-m-n-200', 'm-n-0-400', 'a-b-g-500'] }
+    { path: 'a-noRating-test', expect: ['a-noRating-q-strRating', 'c-m-n-200', 'a-b-d-350', 'm-n-o-400', 'a-b-e-500'] },
+    { path: 'a-b-f-900', expect: ['c-m-n-200', 'm-n-o-400', 'a-b-g-500'] }
 ]
 
 const testMakeBBList = (showAll = false) => {
@@ -30,7 +33,7 @@ const testMakeBBList = (showAll = false) => {
         for (let i = 0; allGood && i < bbs.length; i++) {
             if (bbs[i] !== t.expect[i]) {
                 allGood = false;
-                console.log(red, `path: ${t.path} elsement ${i} gives ${bbs[i]} expected`, white, t.expect)
+                console.log(red, `path: ${t.path} element ${i} is wrong. Have ${bbs} expected`, white, t.expect)
             }
         }
         if (bbs.length !== t.expect.length) {
