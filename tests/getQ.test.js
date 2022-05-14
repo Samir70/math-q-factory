@@ -82,7 +82,17 @@ const getQTests = (showAll, showBBs) => {
                 if (!Array.isArray(q.buildingBlocks)) {
                     console.log(yellow, `getQ: ${qDescription} buildingBlocks is not an array`)
                     allDes = false;
-                } 
+                } else {
+                    for (let bb of q.buildingBlocks) {
+                        let [chap, sec, qName, rating] = bb.split('-');
+                        if (rating === undefined) {
+                            console.log(red, `getQ: ${qDescription} has a badly formatted building block (no rating): ${bb}`)
+                            allDes = false
+                        } else if (isNaN(rating)) {
+                            console.log(red, `getQ: ${qDescription} has a building block that does not have a number for a rating: ${bb}`)
+                        }
+                    }
+                }
             }
         }
         if (allDes && showAll) {
