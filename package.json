@@ -1,6 +1,6 @@
 {
   "name": "math-q-factory",
-  "version": "2.12.1",
+  "version": "2.12.2",
   "description": "node module that return maths questions",
   "main": "./lib/index.js",
   "files": [
