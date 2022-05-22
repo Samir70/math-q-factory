@@ -29,9 +29,10 @@ const tests = [
 const test2 = [
     // real q-paths to see what we would get
     // these are for display only, it would be impractical to fix the desired output.
-    'fraction-multiply-mixedNumbers-150',
-    'percent-ofAmount-multiplesOf1%-150',
-    'wordy-busStop-holiday-230'
+    // 'fraction-multiply-mixedNumbers-150',
+    // 'percent-ofAmount-multiplesOf1%-150',
+    // 'wordy-busStop-holiday-230',
+    'shape-rectangle-perimFromAreaSide-120', 'shape-rectangle-areaFromPerimSide-120'
 ]
 
 const testMakeBBList = (showAll = false) => {
