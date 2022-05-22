@@ -32,7 +32,8 @@ const test2 = [
     // 'fraction-multiply-mixedNumbers-150',
     // 'percent-ofAmount-multiplesOf1%-150',
     // 'wordy-busStop-holiday-230',
-    'shape-rectangle-perimFromAreaSide-120', 'shape-rectangle-areaFromPerimSide-120'
+    'shape-rectangle-perimFromAreaSide-120', 'shape-rectangle-areaFromPerimSide-120',
+    'number-busStop-withRemainder-180'
 ]
 
 const testMakeBBList = (showAll = false) => {
