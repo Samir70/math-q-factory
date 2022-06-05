@@ -33,7 +33,7 @@ const test2 = [
     // 'percent-ofAmount-multiplesOf1%-150',
     // 'wordy-busStop-holiday-230',
     'shape-rectangle-perimFromAreaSide-120', 'shape-rectangle-areaFromPerimSide-120',
-    'number-busStop-withRemainder-180'
+    'number-busStop-withRemainder-180', 'examQs-bakeryQ-meanNoBags-210'
 ]
 
 const testMakeBBList = (showAll = false) => {
