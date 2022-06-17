@@ -19,4 +19,15 @@ const geometricSeqTests = {
   ]
 }
 
+const fibonacciSeqTests = {
+  compareFunc: compareArrays,
+  tests: [
+    {args: [5, 1, 1], expect: [1, 1, 2, 3, 5]},
+    {args: [6, 2, 3], expect: [2, 3, 5, 8, 11, 19]},
+    {args: [6, 1, -1], expect: [1, -1, 0, -1, -1, -2]},
+    {args: [6, -1, 1], expect: [-1, 1, 0, 1, 1, 2]},
+    {args: [6, 3, -2], expect: [3, -2, 1, -1, 0, -1]}
+  ]
+}
+
 export const seqTests = [linearSeqTests, geometricSeqTests]
