@@ -1,5 +1,7 @@
 const myMath = require('../lib/nonQ/myMathFuncs');
 const rFuncs = require('../lib/nonQ/randFuncs');
+const { seqTests } = require('./myMathsTest/sequenceTests');
+const { testRunner, displayResult } = require('./testRunner');
 const { red, yellow, green, white } = require('./colours');
 
 const roundDPTests = [
@@ -103,7 +105,7 @@ const testMixed2TopH = () => {
     console.log('Testing myMath.mixed2TopH');
     let allPass = true;
     for (let test of top2MixedTests) {
-        if (test.mixed[1] === 0) {continue}
+        if (test.mixed[1] === 0) { continue }
         if (myMath.mixed2TopH(test.mixed).join('-') !== test.topHeavey.join('-')) {
             console.error(red, `myMath.mixed2TopH failed for ${test.mixed}. Expected ${test.topHeavey} got ${myMath.mixed2TopH(test.mixed)}`);
             allPass = false;
@@ -197,7 +199,7 @@ const testMultInv = (reps = 50) => {
     console.log(white)
 }
 
-exports.myMathTests = () => {
+exports.myMathTests = (showAll) => {
     testGCD();
     testSimplify();
     testTop2Mixed();
@@ -208,4 +210,5 @@ exports.myMathTests = () => {
     testConvergents();
     rndTests4cFracs();
     testMultInv();
+    testRunner(seqTests).forEach(r => displayResult(r, showAll))
 };

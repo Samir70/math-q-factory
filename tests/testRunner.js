@@ -1,22 +1,49 @@
-const {seqTests} = require('./myMathsTest/sequenceTests');
+const { red, yellow, white, green } = require('./colours');
 
 const compareFuncs = {
     areEqual: (got, expected) => got === expected,
     compareArrays: (got, expected) => got.join('-') === expected.join('-')
 }
 
-
 const testRunner = (job) => {
+    let out = [];
     for (let i = 0; i < job.length; i++) {
-        let {name, func, compareFunc, tests} = job[i]
-        console.log(name)
+        let { name, func, compareFunc, tests } = job[i]
+        // console.log(name)
+        const errors = [];
+        let passed = 0;
         for (let t of tests) {
-            const errors = [];
             let out = func(...t.args)
-            console.log(out, t.expect)
-            console.log(compareFuncs[compareFunc](out, t.expect))
+            // console.log(out, t.expect)
+            if (compareFuncs[compareFunc](out, t.expect)) {
+                passed++
+            } else {
+                errors.push({
+                    testArgs: t.args,
+                    got: out,
+                    expected: t.expect
+                })
+            }
         }
+        out.push({
+            testName: name,
+            result: `Passed ${passed} out of ${tests.length} tests`,
+            errors
+        })
     }
+    return out
 }
 
-testRunner(seqTests)
+const displayResult = (resObj, showFullResults) => {
+    if (resObj.errors.length === 0) {
+        showFullResults && console.log(green, resObj.testName, '---> ', resObj.result);
+    } else {
+        console.log(red, resObj.testName, '----> ', resObj.result, white);
+        for (let e of resObj.errors) {
+            console.log(e)
+        }
+    }
+    console.log(white)
+}
+
+module.exports = { testRunner, displayResult }
