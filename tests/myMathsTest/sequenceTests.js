@@ -37,4 +37,16 @@ const fibonacciSeqTests = {
   ]
 }
 
-exports.seqTests = [linearSeqTests, geometricSeqTests, fibonacciSeqTests]
+const quadraticSeqTests = {
+  name: "Testing quadratic sequences",
+  compareFunc: "compareArrays",
+  func: makeSeq.linear,
+  tests: [
+    // args are n, a, b, c
+    {args: [5, 1, 0, 0], expect: [1, 4, 9, 16, 25]  },
+    {args: [5, 1, 1, 0], expect: [2, 6, 12, 20, 30]  },
+    {args: [5, 1, 2, 1], expect: [4, 9, 16, 25, 36] }
+  ]
+}
+
+exports.seqTests = [linearSeqTests, geometricSeqTests, fibonacciSeqTests, quadraticSeqTests]
