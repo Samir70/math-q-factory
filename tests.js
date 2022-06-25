@@ -30,9 +30,10 @@ if (args.length > 0 && args[0][0] !== '-') {
     let showBBs = args.includes('--showBBs');
     let showChapterTests = args.includes('--chapters');
     let showSectionTests = args.includes('--sections');
+    let showMathsTests = args.includes('--maths');
     chapStructureTest(showAll || showChapterTests);
     sectStructreTest(showAll || showSectionTests);
-    myMathTests(showAll);
+    myMathTests(showAll || showMathsTests);
     formatFuncsTests(showAll);
     getQTests(showAll, showBBs);
     testMakeBBList(showAll)
