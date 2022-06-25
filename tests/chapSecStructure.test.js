@@ -50,7 +50,7 @@ const chapStructureTest = (showAll) => {
 const sectionEssentials = [
     "sectionName", "qGetter"
 ]
-const sectStructreTest = () => {
+const sectStructreTest = (showAll) => {
     for (let list of secList) {
         for (let sec in list) {
             let allEss = true;
@@ -60,11 +60,11 @@ const sectStructreTest = () => {
                     allEss = false
                 }
             }
-            if (allEss) {
-                console.log(green, 'found all essential properties in', list[sec])
-            } else {
+            if (!allEss) {
                 console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
                 console.log(white, list[sec])
+            } else if (showAll) {
+                console.log(green, 'found all essential properties in', list[sec])
             }
         }
     }

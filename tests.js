@@ -28,9 +28,10 @@ if (args.length > 0 && args[0][0] !== '-') {
 } else {
     let showAll = args.includes('--verbose');
     let showBBs = args.includes('--showBBs');
-    let showChapterTests = args.includes('--chapters')
+    let showChapterTests = args.includes('--chapters');
+    let showSectionTests = args.includes('--sections');
     chapStructureTest(showAll || showChapterTests);
-    sectStructreTest(showAll);
+    sectStructreTest(showAll || showSectionTests);
     myMathTests(showAll);
     formatFuncsTests(showAll);
     getQTests(showAll, showBBs);
