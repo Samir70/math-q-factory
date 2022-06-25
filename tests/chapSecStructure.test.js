@@ -28,7 +28,7 @@ const secList = [
 const chapterEssentials = [
     "chapterName", "qGetter"
 ]
-const chapStructureTest = () => {
+const chapStructureTest = (showAll) => {
     for (let chap in chapters) {
         let allEss = true;
         for (let prop of chapterEssentials) {
@@ -37,11 +37,11 @@ const chapStructureTest = () => {
                 allEss = false;
             }
         }
-        if (allEss) {
-            console.log(green, 'found all essential properties in', white, chapters[chap])
-        } else {
+        if (!allEss) {
             console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
             console.log(white, chapters[chap])
+        } else if (showAll) {
+            console.log(green, 'found all essential properties in', white, chapters[chap])
         }
     }
     console.log(white);

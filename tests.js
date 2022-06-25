@@ -27,8 +27,9 @@ if (args.length > 0 && args[0][0] !== '-') {
     }
 } else {
     let showAll = args.includes('--verbose');
-    let showBBs = args.includes('--showBBs')
-    chapStructureTest(showAll);
+    let showBBs = args.includes('--showBBs');
+    let showChapterTests = args.includes('--chapters')
+    chapStructureTest(showAll || showChapterTests);
     sectStructreTest(showAll);
     myMathTests(showAll);
     formatFuncsTests(showAll);
