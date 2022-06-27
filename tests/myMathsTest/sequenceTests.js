@@ -1,5 +1,4 @@
 const {makeSeq} = require('../../lib/nonQ/sequenceFunctions');
-// need tests for ['', '', '', '', '', '', 'harmonic']
 
 const linearSeqTests = {
   name: "Testing linear sequences",
@@ -77,4 +76,16 @@ const twoStepSeqTests = {
   ]
 }
 
-exports.seqTests = [linearSeqTests, geometricSeqTests, fibonacciSeqTests, quadraticSeqTests, cubicSeqTests, twoStepSeqTests]
+const harmonicSeqTests = {
+  name: "Testing harmonic sequences",
+  compareFunc: "compareArrays",
+  func: makeSeq.linear,
+  tests: [
+    // args are n, diff, start = parameters for linear sequence that is the reciprocal of target sequence
+    { args: [6, 1/6, 1/6], expect: [6, 3, 2, 1.5, 1.2, 1] },
+    { args: [5, 1/9, 1/9], expect: [9, 4.5, 3, 2.25, 1.8] },
+    { args: [5, 3, -4], expect: [-0.25, -1, 0.5, 0.2, 0.125] } //linear is -4, -1, 2, 5, 8
+  ]
+}
+
+exports.seqTests = [linearSeqTests, geometricSeqTests, fibonacciSeqTests, quadraticSeqTests, cubicSeqTests, twoStepSeqTests, harmonicSeqTests]
