@@ -1,5 +1,5 @@
 const {makeSeq} = require('../../lib/nonQ/sequenceFunctions');
-// need tests for ['', '', '', '', '', 'two-step', 'harmonic']
+// need tests for ['', '', '', '', '', '', 'harmonic']
 
 const linearSeqTests = {
   name: "Testing linear sequences",
@@ -44,7 +44,7 @@ const quadraticSeqTests = {
   func: makeSeq.linear,
   tests: [
     // args are n, a, b, c
-    {args: [5, 1, 0, 0], expect: [1, 4, 9, 16, 25]  },
+    {args: [6, 1, 0, 0], expect: [1, 4, 9, 16, 25, 36]  },
     {args: [5, 1, 1, 0], expect: [2, 6, 12, 20, 30]  },
     {args: [5, 1, 2, 1], expect: [4, 9, 16, 25, 36] }
   ]
@@ -60,8 +60,21 @@ const cubicSeqTests = {
     {args: [6, 1, 0, 0, 3], expect: [4, 11, 30, 67, 128, 219]  },
     {args: [6, 1, 0, 1, 3], expect: [5, 13, 33, 71, 133, 225]  },
     {args: [6, 1, 1, 1, 3], expect: [6, 17, 42, 87, 158, 261]  }, 
-    {args: [6, 2, 3, 4, 5], expect: [14, 41, 98, 197, 350, 569]  }
+    {args: [5, 2, 3, 4, 5], expect: [14, 41, 98, 197, 350]  }
   ]
 }
 
-exports.seqTests = [linearSeqTests, geometricSeqTests, fibonacciSeqTests, quadraticSeqTests]
+const twoStepSeqTests = {
+  name: "Testing two step sequences",
+  compareFunc: "compareArrays",
+  func: makeSeq.linear,
+  tests: [
+    // args are n, start, mult, add = 1st term, how many step one (what to multiply by) step two (what to add)
+    // Can be described by two steps that have adding first, but I have chosen this way
+    {args: [5, 3, 2, 1], expect: [3, 7, 15, 31, 63] },
+    {args: [6, 1, 3, 4], expect: [1, 7, 25, 79, 241, 727] },
+    {args: [6, 2, 7, 5], expect: [2, 19, 138, 971, 6802, 47619] }
+  ]
+}
+
+exports.seqTests = [linearSeqTests, geometricSeqTests, fibonacciSeqTests, quadraticSeqTests, cubicSeqTests, twoStepSeqTests]
