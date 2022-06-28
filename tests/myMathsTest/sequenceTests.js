@@ -27,7 +27,7 @@ const geometricSeqTests = {
 const fibonacciSeqTests = {
   name: "Testing fibonacci sequences",
   compareFunc: "compareArrays",
-  func: makeSeq.linear,
+  func: makeSeq.fibonacci,
   tests: [
     { args: [5, 1, 1], expect: [1, 1, 2, 3, 5] },
     { args: [6, 2, 3], expect: [2, 3, 5, 8, 11, 19] },
