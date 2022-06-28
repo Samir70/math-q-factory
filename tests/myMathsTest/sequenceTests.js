@@ -14,7 +14,7 @@ const linearSeqTests = {
 const geometricSeqTests = {
   name: "Testing Goemetric sequences",
   compareFunc: "compareArrays",
-  func: makeSeq.linear,
+  func: makeSeq.geometric,
   tests: [
     //args are [n, r, start]
     { args: [5, 2, 3], expect: [3, 6, 12, 24, 48] },
