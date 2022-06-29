@@ -66,7 +66,7 @@ const cubicSeqTests = {
 const twoStepSeqTests = {
   name: "Testing two step sequences",
   compareFunc: "compareArrays",
-  func: makeSeq.linear,
+  func: makeSeq.twoStep,
   tests: [
     // args are n, start, mult, add = 1st term, how many step one (what to multiply by) step two (what to add)
     // Can be described by two steps that have adding first, but I have chosen this way
