@@ -40,7 +40,7 @@ const fibonacciSeqTests = {
 const quadraticSeqTests = {
   name: "Testing quadratic sequences",
   compareFunc: "compareArrays",
-  func: makeSeq.quadraticSeq,
+  func: makeSeq.quadratic,
   tests: [
     // args are n, a, b, c
     {args: [6, 1, 0, 0], expect: [1, 4, 9, 16, 25, 36]  },
@@ -52,7 +52,7 @@ const quadraticSeqTests = {
 const cubicSeqTests = {
   name: "Testing cubic sequences",
   compareFunc: "compareArrays",
-  func: makeSeq.linear,
+  func: makeSeq.cubic,
   tests: [
     // args are n, a, b, c, d = how many, coefs of x^3, x^2, x, const
     {args: [6, 1, 0, 0, 0], expect: [1, 8, 27, 64, 125, 216] },
