@@ -79,7 +79,7 @@ const twoStepSeqTests = {
 const harmonicSeqTests = {
   name: "Testing harmonic sequences",
   compareFunc: "compareArrays",
-  func: makeSeq.linear,
+  func: makeSeq.harmonic,
   tests: [
     // args are n, diff, start = parameters for linear sequence that is the reciprocal of target sequence
     { args: [6, 1/6, 1/6], expect: [6, 3, 2, 1.5, 1.2, 1] },
