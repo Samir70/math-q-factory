@@ -1,4 +1,4 @@
-const { roundToWithin  } = require('../../lib/nonQ/myMathFuncs');
+const { roundToWithin, roundDP  } = require('../../lib/nonQ/myMathFuncs');
 
 const rountToWithinTests = {
   name: "Rounding dodgy javaScript division to useful number of decimals",
@@ -12,4 +12,26 @@ const rountToWithinTests = {
   ]
 }
 
-exports.roundingTests = [rountToWithinTests]
+const roundToDecPlaces = {
+  name: "Testing myMath.roundDP(x, dp)",
+  compareFunc: "areEqual",
+  func: roundDP,
+  tests: [
+    // args are (value, decimal places)
+    [, 6.7, 1], [, 6.7, 1], [, 6.6, 1], [, 8, 1],
+    [, 1.1, 1]
+    {args: [4.566, 2], expect: 4.57 },
+    {args: [4.565, 2], expect: 4.57 },
+    {args: [4.562, 2], expect: 4.56 },
+    {args: [3.996], expect: 4 },
+    {args: [1.005, 2], expect: 1.01 },
+    {args: [59.385, 2], expect: 59.39 },
+    {args: [6.67, 1], expect: 6.7 },
+    {args: [6.65, 1], expect: 6.7 },
+    {args: [6.64, 1], expect: 6.6 },
+    {args: [7.95, 1], expect: 8 },
+    {args: [1.05, 1], expect: 1.1 }
+  ]
+}
+
+exports.roundingTests = [rountToWithinTests, roundToDecPlaces]
