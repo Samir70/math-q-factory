@@ -185,7 +185,6 @@ exports.myMathTests = (showAll) => {
     testSimplify();
     testTop2Mixed();
     testMixed2TopH();
-    testRoundDP();
     testPenceToPounds();
     testCFrac();
     testConvergents();
