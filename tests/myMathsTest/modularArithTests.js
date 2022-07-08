@@ -19,4 +19,4 @@ const gcdTests = {
     ]
   }
 
-exports.roundingTests = [gcdTests];
+exports.modularArithTests = [gcdTests];
