@@ -10,3 +10,6 @@ const TESTNAME = {
       { args: [], expect: [] }
     ]
   }
+
+// You only need one of these in every file, but you can have many of the above test objects in one file and export them all in one array
+exports.NAME_FOR_GROUP_OF_TESTS = [TESTNAME]
