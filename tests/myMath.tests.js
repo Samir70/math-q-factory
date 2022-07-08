@@ -1,26 +1,10 @@
 const myMath = require('../lib/nonQ/myMathFuncs');
 const rFuncs = require('../lib/nonQ/randFuncs');
-const { seqTests } = require('./myMathsTest/sequenceTests');
+const { penceToPoundsTests } = require('./myMathsTest/PenceToPoundsTests');
 const { roundingTests } = require('./myMathsTest/roundingTests');
+const { seqTests } = require('./myMathsTest/sequenceTests');
 const { testRunner, displayResult } = require('./testRunner');
 const { red, yellow, green, white } = require('./colours');
-
-const penceToPoundsTests = [
-    [324, '£3.24'], ['240', '£2.40'], [600, '£6'], [32, '£0.32']
-];
-
-const testPenceToPounds = () => {
-    console.log('Testing myMath.penceToPounds');
-    let allPass = true;
-    for (let [pence, pounds] of penceToPoundsTests) {
-        if (myMath.penceToPounds(pence) !== pounds) {
-            console.log(red, `myMath.penceToPounds failed for ${pence}. Expected ${pounds} got ${myMath.penceToPounds(pence)}`)
-            allPass = false
-        }
-    }
-    if (allPass) { console.log(green, 'myMath.penceToPounds passed all tests') }
-    console.log(white)
-}
 
 const gcdTests = [
     // [[a, b], gcd(a, b)]
@@ -185,12 +169,15 @@ exports.myMathTests = (showAll) => {
     testSimplify();
     testTop2Mixed();
     testMixed2TopH();
-    testPenceToPounds();
     testCFrac();
     testConvergents();
     rndTests4cFracs();
     testMultInv();
-    const tests = [seqTests, roundingTests];
+    const tests = [
+        penceToPoundsTests, 
+        roundingTests,
+        seqTests, 
+     ];
     tests.forEach(t => {
         testRunner(t).forEach(r => displayResult(r, showAll))
     })
