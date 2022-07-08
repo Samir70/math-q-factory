@@ -1,31 +1,11 @@
 const myMath = require('../lib/nonQ/myMathFuncs');
 const rFuncs = require('../lib/nonQ/randFuncs');
+const { modularArithTests } = require('./myMathsTest/modularArithTests');
 const { penceToPoundsTests } = require('./myMathsTest/PenceToPoundsTests');
 const { roundingTests } = require('./myMathsTest/roundingTests');
 const { seqTests } = require('./myMathsTest/sequenceTests');
 const { testRunner, displayResult } = require('./testRunner');
 const { red, yellow, green, white } = require('./colours');
-
-const gcdTests = [
-    // [[a, b], gcd(a, b)]
-    [[65], 65],
-    [[1, 13], 1], [[4, 8], 4], [[7, 15], 1], [[0, 6], 6],
-    [[1470, 588], 294], [[210, 294], 42], [[882, 378], 126],
-    [[441, 189, 315], 63], [[392, 1372, 980], 196]
-]
-
-const testGCD = () => {
-    console.log('Testing myMath.gcd()');
-    let allPass = true;
-    for (let [nums, ans] of gcdTests) {
-        if (myMath.gcd(nums) !== ans) {
-            console.error(red, `myMath.gcd failed for ${nums}. Expected ${ans} got ${myMath.gcd(nums)}`)
-            allPass = false;
-        }
-    }
-    if (allPass) { console.log(green, 'myMath.gcd passed all tests') }
-    console.log(white)
-}
 
 const simplifyTests = [
     { big: [25, 60, 45], simple: [5, 12, 9] },
@@ -165,7 +145,6 @@ const testMultInv = (reps = 50) => {
 }
 
 exports.myMathTests = (showAll) => {
-    testGCD();
     testSimplify();
     testTop2Mixed();
     testMixed2TopH();
@@ -174,10 +153,11 @@ exports.myMathTests = (showAll) => {
     rndTests4cFracs();
     testMultInv();
     const tests = [
-        penceToPoundsTests, 
+        modularArithTests,
+        penceToPoundsTests,
         roundingTests,
-        seqTests, 
-     ];
+        seqTests,
+    ];
     tests.forEach(t => {
         testRunner(t).forEach(r => displayResult(r, showAll))
     })

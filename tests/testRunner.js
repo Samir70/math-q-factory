@@ -36,14 +36,14 @@ const testRunner = (job) => {
 
 const displayResult = (resObj, showFullResults) => {
     if (resObj.errors.length === 0) {
-        showFullResults && console.log(green, resObj.testName, '---> ', resObj.result);
+        showFullResults && console.log(green, resObj.testName, '---> ', resObj.result, white);
     } else {
         console.log(red, resObj.testName, '----> ', resObj.result, white);
         for (let e of resObj.errors) {
             console.log(e)
         }
     }
-    console.log(white)
+    // console.log(white)
 }
 
 module.exports = { testRunner, displayResult }
