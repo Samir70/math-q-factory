@@ -1,7 +1,10 @@
 # math-q-factory
+## install into a project with npm
+> npm i math-q-factory
 javaScript package that generates a variety of maths questions. Any difficulty level considered.
 
-Currently on version 3. This includes only a small breaking change from version 2:
+## version 3
+This includes only a small breaking change from version 2:
 ```
 // totalQs used to just give a list of chapters, with how many questions that chapter has
 {
@@ -34,9 +37,6 @@ Masters: less than 7000
 ```
 (Not many question types in the higher categories, yet!)
 But these boundaries are really hard to maintain. I use some FS level 1 questions in GCSE classes and find that there are a few that challenge students who came in with a grade 3 (Try out the bakery Q, finding the mean after completing the table of given data). Similarly: a lot of my FS students can do some algebra and finding angles in triangles, but those aren't part of their course. I decided to strike a balance, though this makes things like diagnostics a little harder to arrange. But a good initial assessment should spot the students who need to be on a different course.
-
-## install into a project with npm
-> npm i math-q-factory
 
 ## breaking changes for version 2
 I felt these were needed to reorganise how topicsToTest get listed. See below.
