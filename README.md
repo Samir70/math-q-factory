@@ -1,10 +1,45 @@
 # math-q-factory
-javaScript package that generates a variety of maths questions. Any difficulty level considered.
-
 ## install into a project with npm
 > npm i math-q-factory
+javaScript package that generates a variety of maths questions. Any difficulty level considered.
 
-The package is now at version 2, I felt the breaking changes were needed to reorganise how topicsToTest get listed. See below.
+## version 3
+This includes only a small breaking change from version 2:
+```
+// totalQs used to just give a list of chapters, with how many questions that chapter has
+{
+  algebra01: 12,   data: 7,  decimal: 1,  examQs: 4,  formulas: 3,  fraction: 17,
+  number: 25,  numberTheory: 2,  percent: 4,  ratio: 8,  sequences: 6,
+  shape: 6,  wordy: 10,  vocab: 14,  powers: 3
+}
+// Now each chapter has an object as value, giving
+{
+  algebra01: { qCount: 12, min: 160, max: 350 },
+  data: { qCount: 7, min: 110, max: 180 },
+  decimal: { qCount: 1, min: 120, max: 120 },
+  examQs: { qCount: 4, min: 149, max: 210 },
+  formulas: { qCount: 3, min: 200, max: 250 },
+  // ...
+  vocab: { qCount: 14, min: 30, max: 220 },
+  powers: { qCount: 3, min: 205, max: 215 }
+}
+```
+This enables a user to put grading onto a chapter. My suggestion would be:
+```
+Functional Skills E3: less than 100
+Functional Skills L1: less than 200
+GCSE grade 3: less than 300
+GCSE grade 4-5: less than 500
+GCSE higher: less than 950
+A-level: less than 1500
+Graduate: less than 5000
+Masters: less than 7000
+```
+(Not many question types in the higher categories, yet!)
+But these boundaries are really hard to maintain. I use some FS level 1 questions in GCSE classes and find that there are a few that challenge students who came in with a grade 3 (Try out the bakery Q, finding the mean after completing the table of given data). Similarly: a lot of my FS students can do some algebra and finding angles in triangles, but those aren't part of their course. I decided to strike a balance, though this makes things like diagnostics a little harder to arrange. But a good initial assessment should spot the students who need to be on a different course.
+
+## breaking changes for version 2
+I felt these were needed to reorganise how topicsToTest get listed. See below.
 
 Also: The previous hint and giveAway properties have been replaced with an array called hints. Any number of hints can now be given. I will eventually include a special hint that references easier questions and add that property -- as an enhancement, not a breaking change.
 
