@@ -1,6 +1,7 @@
 const { red, white, green } = require('./colours');
 const { chapters } = require('../lib/chapters/chapterList');
 const { algebraSections } = require('../lib/chapters/algebra01/algebraSectionList');
+const { conversionSections } = require('../lib/chapters/conversion/conversionSectionList');
 const { dataSections } = require('../lib/chapters/data/dataSectionsList');
 const { decimalSections } = require('../lib/chapters/decimal/decimalSectionList');
 const { examQsSectionList } = require('../lib/chapters/ExamQs/examQsSectionList');
@@ -16,8 +17,8 @@ const { shapeSections } = require('../lib/chapters/shape/shapeSectionList');
 const { vocabSections } = require('../lib/chapters/Vocab/vocabSectionList');
 const { wordySections } = require('../lib/chapters/Wordy/wordySectionList');
 const secList = [
-    algebraSections,
-    dataSections, decimalSections, 
+    algebraSections, conversionSections,
+    dataSections, decimalSections,
     examQsSectionList,
     formulasSections, fractionSectionList,
     numberSections, numberTheorySectionList, percentSections, powersSectionList,
